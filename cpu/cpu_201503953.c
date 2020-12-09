@@ -41,8 +41,25 @@ int iniciar(void)
     printk(KERN_INFO "Diciembre 20202\n");
 
     for_each_process(task){
-        printf("I found task\n")
+        printk(KERN_INFO "\nPADRE PID: %d PROCESO: %s ESTADO: %ld", task->pid, task->comm, task->state);
+        list_for_each(list, &task->children){
+            task_child = list_entry(list, struct task_struct, sibling);
+            printk(KERN_INFO "\nHIJO DE %s[%d] PID: %d PROCESO: %s ESTADO: %ld", task->comm, task->pid, 
+                task_child->pid, task_child->comm, task_child->state);
+        }
+        printk("\n*---------------------------------------------\n");
     }
-
     return 0;
 }              
+
+void salir(void){
+    remove_proc_entry("cpu_201503953", NULL);
+    printk(KERN_INFO "Removing ListTasksLinear\n");
+}
+
+module_init(iniciar);
+module_exit(salir);
+
+MODULE_LICENSE("GPL");
+MODULE_DESCRIPTION("List tasks linearly");
+MODULE_AUTHOR("Sergio Leal, 201503953");
