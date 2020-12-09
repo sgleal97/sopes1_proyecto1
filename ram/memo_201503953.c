@@ -5,3 +5,7 @@
 #include <linux/sysinfo.h>
 #include <linux/seq_file.h>
 #include <linux/swap.h>
+
+struct sysinfo info;
+
+int
