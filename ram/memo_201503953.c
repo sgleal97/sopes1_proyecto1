@@ -24,7 +24,7 @@ static int meminfo_proc_show(struct seq_file *m, void *v){
     multiplicacion = resta*100;
 
     usage = multiplicacion/totalram;
-    seq_printf(m, "\"RAM\": %ld| \"FREE\": %ld | \"USADA\": %ld %% ", totalram,freeram,usage);
+    seq_printf(m, "{\n\"RAM\": %ld,\n\"FREE\": %ld,\n\"USADA\": %ld\n}\n", totalram,freeram,usage);
     
     return 0;
 }

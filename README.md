@@ -16,8 +16,12 @@ Modulos de Kernel
 ### Comandos generales
 - dmesg
 
+### Comandos de Go
+- go run main.go
+
 # Estado de proceso
 0  : Running
-1  : Durmiendo
-4  : Detenido
+1  : Sleep
+4  : Stop
 32 : Zombie
+1026 : Desconocido

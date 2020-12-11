@@ -12,6 +12,13 @@ static int meminfo_proc_show(struct seq_file *m, void *v){
     struct mm_struct *mm;
     long memori = 0;
     int cont = 0;
+
+    int ejecutando = 0;
+    int detenido = 0;
+    int suspendido = 0;
+    int zombie = 0;
+    int desc = 0;
+
     struct task_struct *task_child;
     struct list_head *list;
     seq_printf(m, "{ \"procesos\": [\n");
@@ -29,13 +36,24 @@ static int meminfo_proc_show(struct seq_file *m, void *v){
         }
         #define K(x)((x)<<(PAGE_SHIFT-10))
         seq_printf(m,"{\n");
-        seq_printf(m, "\"Usuario\": \"%d\", \"Memoria\": \"%ld\", \"Nombre\": \"%s\", \"PID\": \"%d\", \"Estado\": \"%ld\", \"Salida\": \"%d\"",
-        tcred->uid,
-        memori,
-        task->comm,
-        task->pid,
-        task->state,
-        task->exit_state);
+        seq_printf(m, "\"Usuario\": \"%d\",\n",tcred->uid);
+        seq_printf(m, "\"Memoria\": \"%ld\",\n", memori);
+        seq_printf(m, "\"Nombre\": \"%s\",\n", task->comm);
+        seq_printf(m, "\"PID\": \"%d\",\n", task->pid);
+        seq_printf(m, "\"Estado\": \"%ld\",\n", task->state);
+        seq_printf(m, "\"Salida\": \"%d\",\n", task->exit_state);
+
+        if(task->state == 0){
+            ejecutando = ejecutando + 1;
+        }else if(task->state == 1){
+            suspendido = suspendido + 1;
+        }else if(task->state == 4){
+            detenido = detenido + 1;
+        }else if(task->state == 32){
+            zombie = zombie + 1;
+        }else if(task->state == 1026){
+            suspendido = suspendido + 1;
+        }
 
         cont = cont + 1;
         seq_printf(m, ",\"hijos\": \"");
@@ -47,7 +65,15 @@ static int meminfo_proc_show(struct seq_file *m, void *v){
         seq_printf(m, " }");
     }
     seq_printf(m, "]\n");
-    seq_printf(m, " }");
+    seq_printf(m, "*Ejecutandose: %d|", ejecutando);
+    seq_printf(m, " Suspendido: %d|", suspendido);
+    seq_printf(m, " Detenido: %d|", detenido);
+    seq_printf(m, " Zombie: %d|", zombie);
+    seq_printf(m, " Desconocido: %d|", desc);
+    seq_printf(m, " Total: %d", cont);
+    seq_printf(m, " }\n");
+
+    
 
     return 0;
 }
