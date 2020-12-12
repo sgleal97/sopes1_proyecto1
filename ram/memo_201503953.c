@@ -51,9 +51,9 @@ static int __init inicio(void){
     if(!entry){
         return -1;
     }else{
-        printk(KERN_INFO "201503953");
-        return 0;
+        printk(KERN_INFO "201503953\n");
     }
+    return 0;
 }
 
 static void __exit Terminar(void){
@@ -61,7 +61,8 @@ static void __exit Terminar(void){
     printk(KERN_INFO "Sistemas Operativos 1\n");
 }
 
-
+MODULE_AUTHOR("Sergio Leal");
+MODULE_LICENSE("GPL");
+MODULE_DESCRIPTION("Modulo para calcular el uso de RAM");
 module_init(inicio);
 module_exit(Terminar);
-MODULE_LICENSE("GPL");

@@ -93,7 +93,9 @@ static int cpu_stat_show(struct seq_file *m, void *v){
 	usage = work_over_period*100/total_over_period;
 
 	
-	seq_printf(m, "{\n\"CPU\":%d%%\n}\n",usage);
+	seq_printf(m, "{\n\"");
+	seq_printf(m, "Total\": %d\n", usage);
+	seq_printf(m, "}\n");
     return 0;
 }
 
