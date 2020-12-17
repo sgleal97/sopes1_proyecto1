@@ -5,3 +5,4 @@ graficas/public
 server
 eliminar.go
 backupCPU.c
+servidor/node_modules

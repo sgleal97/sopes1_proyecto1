@@ -3,6 +3,7 @@ import Graficas from './components/Graficas';
 import Datos from './components/Datos';
 import { BrowserRouter as Router, Switch, Route} from "react-router-dom";
 import Navbar from './components/Navbar';
+import Procesos from './components/Procesos';
 
 export default class App extends Component{
 
@@ -19,6 +20,11 @@ export default class App extends Component{
             ramC:0,
             cpuA:0,
             cpuB:0,
+            ptotal:0,
+            pejecucion:0,
+            psuspendidos:0,
+            pdetenidos:0,
+            pzombies:0,
             DatosA: [{"autor":"Sergio", "nota":"RAM"}],
             DatosB: [{"autor":"Sergio", "nota":"CPU"}]
       }
@@ -82,6 +88,18 @@ export default class App extends Component{
             this.PDetenidos = data.ProcessInfo.detenidos;
             this.PZombies = data.ProcessInfo.zombies;
         })
+        /*var arregloProcess = this.state.arregloProcessA;
+        arregloProcess[4] = parseInt(this.PZombies, 10);
+        arregloProcess[3] = parseInt(this.PDetenidos, 10);
+        arregloProcess[2] = parseInt(this.PSuspendidos, 10);
+        arregloProcess[1] = parseInt(this.PEjecucion, 10);
+        arregloProcess[0] = parseInt(this.PTotal, 10);
+        var result = arregloProcess.map((arregloProcess)=>arregloProcess*1);*/
+        this.setState({ptotal: this.PTotal});
+        this.setState({pejecucion: this.PEjecucion});
+        this.setState({psuspendidos: this.PSuspendidos});
+        this.setState({pdetenidos: this.PDetenidos});
+        this.setState({pzombies: this.PZombies});
     }
 
   componentWillMount(){
@@ -106,8 +124,9 @@ export default class App extends Component{
                       <Route path="/dataA">
                           <Datos data={this.state.DatosA} name="A"/>
                       </Route>
-                      <Route path="/dataB">
-                          <Datos data={this.state.DatosB} name="B"/>
+                      <Route path="/procesos">
+                          <Procesos data={this.state.DatosB} ptotal={this.state.ptotal} pejecucion={this.state.pejecucion} psuspendidos={this.state.psuspendidos}
+                                    pdetenidos={this.state.pdetenidos} pzombies={this.state.pzombies} />
                       </Route>
                   </Switch>
               </div>

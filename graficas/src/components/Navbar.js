@@ -13,7 +13,7 @@ class Navbar extends React.Component {
                         <ul className="nav navbar-nav navbar-right">
                            <li className={this.getNavLinkClass("/charts")}><NavLink to="/charts">Graficas</NavLink></li>
                            <li className={this.getNavLinkClass("/dataA")}><NavLink to="/dataA">Servidor A</NavLink></li>
-                           <li className={this.getNavLinkClass("/dataB")}><NavLink to="/dataB">Servidor B</NavLink></li>
+                           <li className={this.getNavLinkClass("/procesos")}><NavLink to="/procesos">Procesos</NavLink></li>
                         </ul>
                     </div>
                 </div>
