@@ -19,6 +19,9 @@ Modulos de Kernel
 ### Comandos de Go
 - go run main.go
 
+# Librerias
+- go get github.com/gorilla/websocket
+
 # Estado de proceso
 0  : Running
 1  : Sleep
