@@ -25,6 +25,12 @@ export default class App extends Component{
             psuspendidos:0,
             pdetenidos:0,
             pzombies:0,
+            ppid: [],
+            pnombre: [],
+            pusuario: [],
+            pusuarionombre: [],
+            pestado: [],
+            pram: [],
             DatosA: [{"autor":"Sergio", "nota":"RAM"}],
             DatosB: [{"autor":"Sergio", "nota":"CPU"}]
       }
@@ -37,6 +43,12 @@ export default class App extends Component{
       this.PSuspendidos = 0;
       this.PDetenidos = 0;
       this.PZombies = 0;
+      this.PPid = [];
+      this.PNombre = [];
+      this.PUsuario = [];
+      this.PUsuarioNombre = [];
+      this.PEstado = [];
+      this.PRam = [];
   }
 
   async USAGE_RAM(){
@@ -87,19 +99,20 @@ export default class App extends Component{
             this.PSuspendidos = data.ProcessInfo.suspendidos;
             this.PDetenidos = data.ProcessInfo.detenidos;
             this.PZombies = data.ProcessInfo.zombies;
+            console.log(data.ProcessList);
+            this.getProcess(data.ProcessList);
         })
-        /*var arregloProcess = this.state.arregloProcessA;
-        arregloProcess[4] = parseInt(this.PZombies, 10);
-        arregloProcess[3] = parseInt(this.PDetenidos, 10);
-        arregloProcess[2] = parseInt(this.PSuspendidos, 10);
-        arregloProcess[1] = parseInt(this.PEjecucion, 10);
-        arregloProcess[0] = parseInt(this.PTotal, 10);
-        var result = arregloProcess.map((arregloProcess)=>arregloProcess*1);*/
         this.setState({ptotal: this.PTotal});
         this.setState({pejecucion: this.PEjecucion});
         this.setState({psuspendidos: this.PSuspendidos});
         this.setState({pdetenidos: this.PDetenidos});
         this.setState({pzombies: this.PZombies});
+        this.setState({ppid: this.PPid});
+        this.setState({pnombre: this.PNombre});
+        this.setState({pusuario: this.PUsuario});
+        this.setState({pusuarionombre: this.PUsuarioNombre});
+        this.setState({pestado: this.PEstado});
+        this.setState({pram: this.PRam});
     }
 
   componentWillMount(){
@@ -108,6 +121,52 @@ export default class App extends Component{
           //this.USAGE_CPU();
           this.USAGE_PROCESS();
       }, 5000);
+  }
+
+  getProcess(Padre = []) {
+    let i = 0;
+    let j = 0;
+    while(i<Padre.length){
+        this.PPid[j]=Padre[i].Pid;
+        this.PNombre[j]=Padre[i].Nombre;
+        this.PUsuario[j]=Padre[i].Usuario;
+        this.PUsuarioNombre[j]=Padre[i].Usuarionombre;
+        this.PEstado[j]=Padre[i].Estado;
+        this.PRam[j]=Padre[i].ram;
+        /*
+        if (Padre[i].hijos.length>0){
+            j = j + 6;
+            for(let k = 0; k<Padre[i].hijos.length; k++){
+                j = j + this.getChild(Padre[i].hijos[k], j);
+            }
+        }else{
+            j = j + 6;
+        }*/
+        j = j + 1;
+        i = i + 1;
+    }
+  }
+
+  getChild(Padre = [], j){
+    let i = 0;
+    while(i<Padre.length){
+        this.PPid[j]=Padre[i].Pid+"\n";
+        this.PNombre[j+1]=Padre[i].Nombre+"\n";
+        this.PUsuario[j+2]=Padre[i].Usuario+"\n";
+        this.PUsuarioNombre[j+3]=Padre[i].Usuarionombre+"\n";
+        this.PEstado[j+4]=Padre[i].Estado+"\n";
+        this.PRam[j+5]=Padre[i].ram+"\n";
+        if (Padre[i].hijos.length>0){
+            j = j + 6;
+            for(let k = 0; k<Padre[i].hijos.length; k++){
+                j = j + this.getChild(Padre[i].hijos[k], j);
+            }
+        }else{
+            j = j + 6;
+        }
+        i = i + 1;
+    }
+    return j;
   }
 
   render(){
@@ -126,7 +185,8 @@ export default class App extends Component{
                       </Route>
                       <Route path="/procesos">
                           <Procesos data={this.state.DatosB} ptotal={this.state.ptotal} pejecucion={this.state.pejecucion} psuspendidos={this.state.psuspendidos}
-                                    pdetenidos={this.state.pdetenidos} pzombies={this.state.pzombies} />
+                                    pdetenidos={this.state.pdetenidos} pzombies={this.state.pzombies} ppid={this.state.ppid} pnombre={this.state.pnombre}
+                                    pusuarion={this.state.pusuario} pusuarionombre={this.state.pusuarionombre} pestado={this.state.pestado} pram={this.state.pram}/> 
                       </Route>
                   </Switch>
               </div>
@@ -134,3 +194,12 @@ export default class App extends Component{
       )
   }
 }
+/*
+export class Process {
+	Pid = "";    
+	Nombre = "";      
+	Usuario = "";      
+	Usuarionombre = "";   
+    Hijos = [];
+}
+*/

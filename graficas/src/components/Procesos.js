@@ -29,7 +29,7 @@ class Procesos extends Component{
                             </tr>
                         </thead>
                         <tbody>
-                        <tr>
+                            <tr>
                                 <th>{this.props.ptotal}</th>
                                 <th>{this.props.pejecucion}</th>
                                 <th>{this.props.psuspendidos}</th>
@@ -39,8 +39,178 @@ class Procesos extends Component{
                         </tbody>
                     </table>
                 </div>
+                <div>
+                    <table className="table">
+                        <thead className="bg-info">
+                            <tr>
+                                <th>Pid</th>
+                                <th>Nombre</th>
+                                <th>Usuario</th>
+                                <th>Estado</th>
+                                <th>Ram</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th>{this.props.ppid[0]}</th>
+                                <th>{this.props.pnombre[0]}</th>
+                                <th>{this.props.pusuarionombre[0]}</th>
+                                <th>{this.props.pestado[0]}</th>
+                                <th>{this.props.pram[0]}</th>
+                            </tr>
+                            <tr>
+                                <th>{this.props.ppid[1]}</th>
+                                <th>{this.props.pnombre[1]}</th>
+                                <th>{this.props.pusuarionombre[1]}</th>
+                                <th>{this.props.pestado[1]}</th>
+                                <th>{this.props.pram[1]}</th>
+                            </tr>
+                            <tr>
+                                <th>{this.props.ppid[2]}</th>
+                                <th>{this.props.pnombre[2]}</th>
+                                <th>{this.props.pusuarionombre[2]}</th>
+                                <th>{this.props.pestado[2]}</th>
+                                <th>{this.props.pram[2]}</th>
+                            </tr>
+                            <tr>
+                                <th>{this.props.ppid[2]}</th>
+                                <th>{this.props.pnombre[2]}</th>
+                                <th>{this.props.pusuarionombre[2]}</th>
+                                <th>{this.props.pestado[2]}</th>
+                                <th>{this.props.pram[2]}</th>
+                            </tr>
+                            <tr>
+                                <th>{this.props.ppid[3]}</th>
+                                <th>{this.props.pnombre[3]}</th>
+                                <th>{this.props.pusuarionombre[3]}</th>
+                                <th>{this.props.pestado[3]}</th>
+                                <th>{this.props.pram[3]}</th>
+                            </tr>
+                            <tr>
+                                <th>{this.props.ppid[4]}</th>
+                                <th>{this.props.pnombre[4]}</th>
+                                <th>{this.props.pusuarionombre[4]}</th>
+                                <th>{this.props.pestado[4]}</th>
+                                <th>{this.props.pram[4]}</th>
+                            </tr>
+                            <tr>
+                                <th>{this.props.ppid[5]}</th>
+                                <th>{this.props.pnombre[5]}</th>
+                                <th>{this.props.pusuarionombre[5]}</th>
+                                <th>{this.props.pestado[5]}</th>
+                                <th>{this.props.pram[5]}</th>
+                            </tr>
+                            <tr>
+                                <th>{this.props.ppid[6]}</th>
+                                <th>{this.props.pnombre[6]}</th>
+                                <th>{this.props.pusuarionombre[6]}</th>
+                                <th>{this.props.pestado[6]}</th>
+                                <th>{this.props.pram[6]}</th>
+                            </tr>
+                            <tr>
+                                <th>{this.props.ppid[7]}</th>
+                                <th>{this.props.pnombre[7]}</th>
+                                <th>{this.props.pusuarionombre[7]}</th>
+                                <th>{this.props.pestado[7]}</th>
+                                <th>{this.props.pram[7]}</th>
+                            </tr>
+                            <tr>
+                                <th>{this.props.ppid[8]}</th>
+                                <th>{this.props.pnombre[8]}</th>
+                                <th>{this.props.pusuarionombre[8]}</th>
+                                <th>{this.props.pestado[8]}</th>
+                                <th>{this.props.pram[8]}</th>
+                            </tr>
+                            <tr>
+                                <th>{this.props.ppid[9]}</th>
+                                <th>{this.props.pnombre[9]}</th>
+                                <th>{this.props.pusuarionombre[9]}</th>
+                                <th>{this.props.pestado[9]}</th>
+                                <th>{this.props.pram[9]}</th>
+                            </tr>
+                            <tr>
+                                <th>{this.props.ppid[10]}</th>
+                                <th>{this.props.pnombre[10]}</th>
+                                <th>{this.props.pusuarionombre[10]}</th>
+                                <th>{this.props.pestado[10]}</th>
+                                <th>{this.props.pram[10]}</th>
+                            </tr>
+                            <tr>
+                                <th>{this.props.ppid[11]}</th>
+                                <th>{this.props.pnombre[11]}</th>
+                                <th>{this.props.pusuarionombre[11]}</th>
+                                <th>{this.props.pestado[11]}</th>
+                                <th>{this.props.pram[11]}</th>
+                            </tr>
+                            <tr>
+                                <th>{this.props.ppid[12]}</th>
+                                <th>{this.props.pnombre[12]}</th>
+                                <th>{this.props.pusuarionombre[12]}</th>
+                                <th>{this.props.pestado[12]}</th>
+                                <th>{this.props.pram[12]}</th>
+                            </tr>
+                            <tr>
+                                <th>{this.props.ppid[13]}</th>
+                                <th>{this.props.pnombre[13]}</th>
+                                <th>{this.props.pusuarionombre[13]}</th>
+                                <th>{this.props.pestado[13]}</th>
+                                <th>{this.props.pram[13]}</th>
+                            </tr>
+                            <tr>
+                                <th>{this.props.ppid[14]}</th>
+                                <th>{this.props.pnombre[14]}</th>
+                                <th>{this.props.pusuarionombre[14]}</th>
+                                <th>{this.props.pestado[14]}</th>
+                                <th>{this.props.pram[14]}</th>
+                            </tr>
+                            <tr>
+                                <th>{this.props.ppid[15]}</th>
+                                <th>{this.props.pnombre[15]}</th>
+                                <th>{this.props.pusuarionombre[15]}</th>
+                                <th>{this.props.pestado[15]}</th>
+                                <th>{this.props.pram[15]}</th>
+                            </tr>
+                            <tr>
+                                <th>{this.props.ppid[50]}</th>
+                                <th>{this.props.pnombre[50]}</th>
+                                <th>{this.props.pusuarionombre[50]}</th>
+                                <th>{this.props.pestado[50]}</th>
+                                <th>{this.props.pram[50]}</th>
+                            </tr>
+                            <tr>
+                                <th>{this.props.ppid[60]}</th>
+                                <th>{this.props.pnombre[60]}</th>
+                                <th>{this.props.pusuarionombre[60]}</th>
+                                <th>{this.props.pestado[0]}</th>
+                                <th>{this.props.pram[60]}</th>
+                            </tr>
+                            <tr>
+                                <th>{this.props.ppid[100]}</th>
+                                <th>{this.props.pnombre[100]}</th>
+                                <th>{this.props.pusuarionombre[100]}</th>
+                                <th>{this.props.pestado[100]}</th>
+                                <th>{this.props.pram[100]}</th>
+                            </tr>
+                            <tr>
+                                <th>{this.props.ppid[150]}</th>
+                                <th>{this.props.pnombre[150]}</th>
+                                <th>{this.props.pusuarionombre[150]}</th>
+                                <th>{this.props.pestado[150]}</th>
+                                <th>{this.props.pram[150]}</th>
+                            </tr>
+                            <tr>
+                                <th>{this.props.ppid[200]}</th>
+                                <th>{this.props.pnombre[200]}</th>
+                                <th>{this.props.pusuarionombre[200]}</th>
+                                <th>{this.props.pestado[200]}</th>
+                                <th>{this.props.pram[200]}</th>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         )
+
     }
 
 }

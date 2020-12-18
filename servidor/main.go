@@ -35,7 +35,7 @@ type Datosjson struct {
 	Usuario       string      `json:"Usuario"`
 	Usuarionombre string      `json:"Usuarionombre"`
 	Estado        string      `json:"Estado"`
-	RAM           string      `json:"Estado"`
+	RAM           string      `json:"ram"`
 	Hijos         []Datosjson `json:"hijos"`
 }
 
