@@ -117,8 +117,8 @@ export default class App extends Component{
 
   componentWillMount(){
       setInterval(() => {
-          //this.USAGE_RAM();
-          //this.USAGE_CPU();
+          this.USAGE_RAM();
+          this.USAGE_CPU();
           this.USAGE_PROCESS();
       }, 5000);
   }

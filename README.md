@@ -19,6 +19,9 @@ Modulos de Kernel
 ### Comandos de Go
 - go run main.go
 
+### Comando de locust
+- 
+
 # Librerias
 - go get github.com/gorilla/websocket
 
